@@ -16,25 +16,18 @@
 
 
 <body>
-    <!-- Nav Bar 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    -->
-    
+    <!-- Nav Bar -->
+    <div>
+    <button>Portfolio</button>
+    <button>About</button>
+    <button>Contact</button>
+    </div>
     
     <!-- Header -->
-    <img src="https://img.moegirl.org/common/thumb/7/71/%E6%BB%91%E7%A8%BD%E8%A1%A8%E6%83%85.jpg/250px-%E6%BB%91%E7%A8%BD%E8%A1%A8%E6%83%85.jpg"></img>
-    <h1>Sheng0v0</h1>
-
+    <div>
+        <img src="https://img.moegirl.org/common/thumb/7/71/%E6%BB%91%E7%A8%BD%E8%A1%A8%E6%83%85.jpg/250px-%E6%BB%91%E7%A8%BD%E8%A1%A8%E6%83%85.jpg"></img>
+        <h1>Sheng0v0</h1>
+    </div>
     <!-- Portfolio Grid Section -->
     
 
@@ -48,6 +41,32 @@
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDXXJe-pne0_ivZU7bN1VbkMDGbhZibcQc",
+    authDomain: "my-portfolio-0o0.firebaseapp.com",
+    databaseURL: "https://my-portfolio-0o0.firebaseio.com",
+    projectId: "my-portfolio-0o0",
+    storageBucket: "my-portfolio-0o0.appspot.com",
+    messagingSenderId: "723013861210"
+  };
+  firebase.initializeApp(config);
+  
+  var database = firebase.database();
+var projects_ref = database.ref('/projects');
+
+projects_ref.once('value', function(snapshot) {
+	var projects = snapshot.val();
+	console.log(projects);
+});
+</script>
+
+<script>
+
+</script>
 </body>
 
 </html>
