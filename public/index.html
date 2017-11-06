@@ -9,6 +9,7 @@
 
 <!DOCTYPE html>
 <head>   
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Uh?</title>
@@ -29,7 +30,9 @@
         <h1>Sheng0v0</h1>
     </div>
     <!-- Portfolio Grid Section -->
-    
+    <div id="projects">
+        
+    </div>
 
     <!-- About Section -->
    
@@ -61,12 +64,23 @@ var projects_ref = database.ref('/projects');
 projects_ref.once('value', function(snapshot) {
 	var projects = snapshot.val();
 	console.log(projects);
+	
+	//var projects = snapshot.val(); 
+    for(var i in projects) {
+        var div = $('<div>');
+        var title = $('<h1>');
+        var image_url = $('<img>');
+        var site_url = $('<a>');
+        var source_url = $('<a>');
+        // console.log("hi: " + projects[i].title);
+        title.text(projects[i].title);
+        div.append(title);
+        $("#projects").append(div);
+    }
+	
 });
 </script>
 
-<script>
-
-</script>
 </body>
 
 </html>
